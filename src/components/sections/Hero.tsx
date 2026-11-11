@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { FiArrowDownRight, FiArrowUpRight, FiMapPin } from 'react-icons/fi';
-import portrait from '../../images/aryan.webp';
+import portrait from '../../images/Gemini_Generated_Image_5bi9pj5bi9pj5bi9.png';
 import { profile, stats } from '../../data/profile';
 import SocialLinks from '../ui/SocialLinks';
 
@@ -59,7 +59,7 @@ const Hero = () => (
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{ duration: 1, delay: 0.15, ease }}
       >
-        <img src={portrait} alt="Portrait of Aryan Phalke" width={900} height={1125} fetchPriority="high" />
+        <img src={portrait} alt="Portrait of Aryan Phalke" width={1844} height={2304} fetchPriority="high" />
         <figcaption className="hero-chip hero-chip-top">
           <span className="chip-k">Recent</span>
           AryanAI · multi-agent chatbot

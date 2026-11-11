@@ -15,7 +15,7 @@ const links = [
 
 const Navbar = () => {
   const isScrolled = useScrollPosition() > 24;
-  const active = useActiveSection(links.map((l) => l.id));
+  const active = useActiveSection(['home', ...links.map((l) => l.id)]);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {

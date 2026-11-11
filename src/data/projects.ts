@@ -14,7 +14,7 @@ export const projects: Project[] = [
     ],
     techStack: ['MongoDB', 'Express', 'React', 'Node.js', 'LangGraph', 'Redis', 'AWS S3'],
     date: 'Oct 2026',
-    github: 'https://github.com/AryanPhalke',
+    github: 'https://github.com/AryanPhalke/Aryan_Assistant',
     featured: true,
   },
   {

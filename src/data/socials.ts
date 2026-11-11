@@ -16,6 +16,6 @@ export const socials: Social[] = [
   { label: 'GitHub', href: profile.links.github, icon: FaGithub, handle: 'AryanPhalke' },
   { label: 'LinkedIn', href: profile.links.linkedin, icon: FaLinkedinIn, handle: 'in/aryan-phalke' },
   { label: 'LeetCode', href: profile.links.leetcode, icon: SiLeetcode, handle: 'AryanPhalke' },
-  { label: 'Medium', href: profile.links.medium, icon: FaMedium, handle: 'Articles' },
+  { label: 'Medium', href: profile.links.medium, icon: FaMedium, handle: '@aryanphalke366p' },
   { label: 'Email', href: `mailto:${profile.email}`, icon: FiMail, handle: profile.email },
 ].filter((s) => s.href);

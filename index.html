@@ -1,10 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>aryan-portfolio</title>
+    <title>Aryan Phalke · Software Engineer</title>
+    <meta
+      name="description"
+      content="Aryan Phalke is a full-stack software engineer (React, TypeScript, Java, Spring Boot) with ~2 years building Esko's CAD on Cloud, and a builder of multi-agent AI systems."
+    />
+    <meta property="og:title" content="Aryan Phalke · Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack engineer: React, TypeScript, Java, Spring Boot and multi-agent AI. Available to join immediately."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0c0e11" />
+
+    <!-- Apply the saved theme before first paint to avoid a flash. -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+          document.documentElement.classList.toggle('dark', t === 'dark');
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div id="root"></div>

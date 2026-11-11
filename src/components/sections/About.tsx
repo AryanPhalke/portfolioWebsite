@@ -1,72 +1,61 @@
-import geminiImg from '../../images/Gemini_Generated_Image_5bi9pj5bi9pj5bi9.png';
+import { profile } from '../../data/profile';
+import Reveal from '../ui/Reveal';
+import SectionHeader from '../ui/SectionHeader';
 
-const About = () => {
-  return (
-    <section id="about" className="sec">
-      <div className="sec-label">Who I am</div>
-      <h2 className="sec-title">
-        I'm Aryan.
-        <br />
-        <span className="accent">A builder.</span>
-      </h2>
+const facts = [
+  { k: 'Education', v: 'B.Tech, Information Technology', s: 'VIIT Pune · GPA 8.52 · 2025' },
+  { k: 'Experience', v: '~2 years, Esko', s: 'SDE 1 · previously intern' },
+  { k: 'Based in', v: 'Pune, India', s: 'Maharashtra' },
+  { k: 'Status', v: profile.availability, s: 'Open to new roles', highlight: true },
+];
+
+const About = () => (
+  <section id="about" className="sec">
+    <div className="container">
+      <SectionHeader
+        index="01"
+        label="About"
+        title={
+          <>
+            I build products <span className="accent">end to end.</span>
+          </>
+        }
+      />
+
       <div className="about-grid">
-        <div>
-          <div className="id-card">
-            <div className="sticker sticker-1">UX</div>
-            <div className="sticker sticker-2">DEV</div>
-            <div className="sticker sticker-3">ML</div>
-            <div className="id-card-inner">
-              <div className="id-avatar">
-                <img src={geminiImg} alt="Aryan" className="id-avatar-photo" />
-              </div>
-            </div>
-            <div className="id-name-card">ARYAN</div>
-            <div style={{ height: "1rem" }} />
-            <div className="id-info">
-              <div>
-                <div className="id-info-label">Education</div>
-                <div className="id-info-val">B.Tech IT, VIIT Pune</div>
-              </div>
-              <div>
-                <div className="id-info-label">CGPA</div>
-                <div className="id-info-val">8.52 / 10</div>
-              </div>
-              <div>
-                <div className="id-info-label">Current Role</div>
-                <div className="id-info-val">SWE Trainee, Esko</div>
-              </div>
-              <div>
-                <div className="id-info-label">Location</div>
-                <div className="id-info-val">Pune, Maharashtra</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="about-text">
+        <Reveal className="about-text">
           <p>
-            <strong> Software Engineer </strong>currently working at <strong>Esko</strong> , contributing to CAD on Cloud — a web-based CAD platform used for managing and designing packaging files. I mainly work with React.js on frontend development, building reusable components, improving existing features, and solving day-to-day development issues.
-        </p>
-        <p>
-            I’m interested in full-stack development. I’ve worked on projects involving <strong>machine learning, deepfake detection, recommendation systems, and chatbots</strong> using technologies like <strong> React, Flask, Node.js, and Python.</strong>
-        </p>
-          <div className="about-contact">
-            <div className="about-contact-title">Contact & Links</div>
-            {[
-              { ico: "Li", label: "linkedin.com/in/aryan-phalke", href: "https://linkedin.com/in/aryan-phalke" },
-              { ico: "Gh", label: "github.com/AryanPhalke", href: "https://github.com/AryanPhalke" },
-              { ico: "LC", label: "leetcode.com/AryanPhalke", href: "https://leetcode.com/AryanPhalke" },
-              { ico: "EM", label: "aryanphalke366p@gmail.com", href: "mailto:aryanphalke366p@gmail.com" },
-            ].map(({ ico, label, href }) => (
-              <a key={label} href={href} className="contact-item" target="_blank" rel="noreferrer">
-                <span className="contact-icon">{ico}</span>
-                {label}
-              </a>
-            ))}
-          </div>
-        </div>
+            I’m a <strong>full-stack software engineer</strong> working mostly in{' '}
+            <strong>Java, Spring Boot, React and TypeScript</strong>. For about two years I worked on{' '}
+            <strong>CAD on Cloud</strong> at Esko, a CAD/PLM SaaS product for packaging design. I shipped
+            features across the stack, from PDF-to-CAD page extraction and similar-design search to
+            thumbnail performance work that halved load times.
+          </p>
+          <p>
+            I like working close to the people who use what I build. At Esko I worked directly with clients
+            including <strong>P&amp;G</strong> on ArtiosCAD–ENOVIA 3DEXPERIENCE integrations and turned their
+            production issues into fixes that shipped.
+          </p>
+          <p>
+            I’m also deep into <strong>applied AI</strong>. I ran knowledge-transfer sessions for the
+            engineering team on Claude’s architecture, prompt engineering and token optimization. On the
+            side I build things like a LangGraph-routed multi-agent assistant and a deepfake detector
+            that became a published paper.
+          </p>
+        </Reveal>
+
+        <Reveal className="facts" delay={0.1}>
+          {facts.map((f) => (
+            <div key={f.k} className={`fact ${f.highlight ? 'fact-hl' : ''}`}>
+              <div className="fact-k">{f.k}</div>
+              <div className="fact-v">{f.v}</div>
+              <div className="fact-s">{f.s}</div>
+            </div>
+          ))}
+        </Reveal>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

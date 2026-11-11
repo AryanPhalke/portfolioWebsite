@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { ThemeContext } from "../context/ThemeContest";
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
-export const useTheme = () =>{
-    const context = useContext(ThemeContext);
-    if(!context) throw new Error('Theme is not provided');
-    return context;
-}
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) throw new Error('Theme is not provided');
+  return context;
+};

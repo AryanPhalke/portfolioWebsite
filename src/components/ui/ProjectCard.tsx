@@ -1,4 +1,5 @@
 import { FiArrowUpRight, FiGithub } from 'react-icons/fi';
+import type { PointerEvent } from 'react';
 import type { Project } from '../../types';
 
 interface ProjectCardProps {
@@ -9,8 +10,15 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, index }: ProjectCardProps) => {
   const number = String(index + 1).padStart(2, '0');
 
+  // Feeds the cursor position to the CSS spotlight on the card.
+  const trackPointer = (e: PointerEvent<HTMLElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - rect.top}px`);
+  };
+
   return (
-    <article className={`proj-card proj-c${index % 2}`}>
+    <article className={`proj-card proj-c${index % 2}`} onPointerMove={trackPointer}>
       <div className="proj-num" aria-hidden>
         {number}
       </div>

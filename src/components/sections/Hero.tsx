@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FiArrowDownRight, FiArrowUpRight, FiMapPin } from 'react-icons/fi';
-import portrait from '../../images/Gemini_Generated_Image_5bi9pj5bi9pj5bi9.png';
+import portrait from '../../images/portrait-1000.webp';
+import portraitSmall from '../../images/portrait-560.webp';
 import { profile, stats } from '../../data/profile';
 import SocialLinks from '../ui/SocialLinks';
 
@@ -15,51 +16,60 @@ const Hero = () => (
   <section id="home" className="hero">
     <div className="hero-grid container">
       <div className="hero-copy">
-        <motion.div className="status-pill" {...rise(0)}>
+        <m.div className="status-pill" {...rise(0)}>
           <span className="status-dot" aria-hidden />
           {profile.availability}
-        </motion.div>
+        </m.div>
 
-        <motion.h1 className="hero-name" {...rise(0.08)}>
+        <m.h1 className="hero-name" {...rise(0.08)}>
           Aryan
           <br />
           <span className="hero-name-outline">Phalke</span>
-        </motion.h1>
+        </m.h1>
 
-        <motion.p className="hero-role" {...rise(0.16)}>
+        <m.p className="hero-role" {...rise(0.16)}>
           {profile.role} <span className="muted">·</span> {profile.focus}
-        </motion.p>
+        </m.p>
 
-        <motion.p className="hero-lede" {...rise(0.22)}>
+        <m.p className="hero-lede" {...rise(0.22)}>
           Full-stack developer with about two years building <strong>Esko’s CAD on Cloud</strong>, a CAD/PLM
           SaaS product, and working directly with clients like <strong>P&amp;G</strong> to turn requirements
           and production issues into shipped releases. Lately I’ve been building multi-agent AI systems.
-        </motion.p>
+        </m.p>
 
-        <motion.div className="hero-ctas" {...rise(0.3)}>
+        <m.div className="hero-ctas" {...rise(0.3)}>
           <a href="#projects" className="btn btn-primary">
             View my work <FiArrowDownRight aria-hidden />
           </a>
           <a href={`mailto:${profile.email}`} className="btn btn-ghost">
             Get in touch <FiArrowUpRight aria-hidden />
           </a>
-        </motion.div>
+        </m.div>
 
-        <motion.div className="hero-meta" {...rise(0.36)}>
+        <m.div className="hero-meta" {...rise(0.36)}>
           <span className="hero-loc">
             <FiMapPin aria-hidden /> {profile.location}
           </span>
           <SocialLinks />
-        </motion.div>
+        </m.div>
       </div>
 
-      <motion.figure
+      <m.figure
         className="hero-photo"
         initial={{ opacity: 0, scale: 0.96, rotate: 2 }}
         animate={{ opacity: 1, scale: 1, rotate: 0 }}
         transition={{ duration: 1, delay: 0.15, ease }}
       >
-        <img src={portrait} alt="Portrait of Aryan Phalke" width={1844} height={2304} fetchPriority="high" />
+        <img
+          src={portrait}
+          srcSet={`${portraitSmall} 560w, ${portrait} 1000w`}
+          sizes="(max-width: 600px) 62vw, (max-width: 900px) 300px, 500px"
+          alt="Portrait of Aryan Phalke"
+          width={1000}
+          height={1249}
+          fetchPriority="high"
+          decoding="async"
+        />
         <figcaption className="hero-chip hero-chip-top">
           <span className="chip-k">Recent</span>
           AryanAI · multi-agent chatbot
@@ -68,17 +78,17 @@ const Hero = () => (
           <span className="chip-k">Stack</span>
           React · TS · Java · Spring
         </div>
-      </motion.figure>
+      </m.figure>
     </div>
 
-    <motion.dl className="stats container" {...rise(0.45)}>
+    <m.dl className="stats container" {...rise(0.45)}>
       {stats.map((s) => (
         <div key={s.label} className="stat">
           <dt className="stat-label">{s.label}</dt>
           <dd className="stat-value">{s.value}</dd>
         </div>
       ))}
-    </motion.dl>
+    </m.dl>
   </section>
 );
 

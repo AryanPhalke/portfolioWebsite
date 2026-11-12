@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import { useScrollPosition } from '../../hooks/useScrollPosition';
+import { useScrolled } from '../../hooks/useScrolled';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import ThemeToggle from '../ui/ThemeToggler';
 
@@ -14,15 +14,22 @@ const links = [
 ];
 
 const Navbar = () => {
-  const isScrolled = useScrollPosition() > 24;
+  const isScrolled = useScrolled(24);
   const active = useActiveSection(['home', ...links.map((l) => l.id)]);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
+    const onPointer = (e: PointerEvent) => {
+      if (!(e.target as Element).closest('.site-nav')) setOpen(false);
+    };
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener('pointerdown', onPointer);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      window.removeEventListener('pointerdown', onPointer);
+    };
   }, [open]);
 
   return (

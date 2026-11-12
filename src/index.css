@@ -1,11 +1,12 @@
 /* ============ TOKENS ============ */
 :root {
+  color-scheme: light;
   --bg: #f5f4ef;
   --bg-alt: #ecebe4;
   --card: #ffffff;
   --text: #14161a;
   --muted: #5d6168;
-  --faint: #8a8e95;
+  --faint: #696d74;
   --accent: #1d7a65;
   --accent-ink: #ffffff;
   --accent-soft: rgba(29, 122, 101, 0.1);
@@ -25,12 +26,13 @@
 }
 
 html.dark {
+  color-scheme: dark;
   --bg: #0c0e11;
   --bg-alt: #111418;
   --card: #161a1f;
   --text: #f1eee8;
   --muted: #a2a6ad;
-  --faint: #6f747c;
+  --faint: #8d929a;
   --accent: #6fd6bb;
   --accent-ink: #0c0e11;
   --accent-soft: rgba(111, 214, 187, 0.1);
@@ -88,6 +90,17 @@ dl,
 dd,
 figure {
   margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 ul,
@@ -270,6 +283,16 @@ img {
 }
 
 /* ============ NAV ============ */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 150;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+
 .site-nav {
   position: fixed;
   inset: 0 0 auto;
@@ -772,6 +795,21 @@ img {
   opacity: 0.9;
 }
 
+.proj-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), var(--accent-soft), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.proj-card:hover::after {
+  opacity: 1;
+}
+
 .proj-c0::before {
   background: radial-gradient(120% 70% at 100% 0%, var(--accent-soft), transparent 60%);
 }
@@ -1101,6 +1139,21 @@ img {
 
 .contact-mail:hover svg {
   transform: translate(3px, -3px);
+}
+
+.contact-actions {
+  margin-top: 1.25rem;
+}
+
+.copy-btn {
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.copy-btn:hover svg {
+  transform: none;
 }
 
 .contact-grid {

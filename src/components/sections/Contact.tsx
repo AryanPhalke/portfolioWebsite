@@ -2,6 +2,7 @@ import { FiArrowUpRight } from 'react-icons/fi';
 import { profile } from '../../data/profile';
 import Reveal from '../ui/Reveal';
 import { socials } from '../../data/socials';
+import CopyButton from '../ui/CopyButton';
 
 const Contact = () => (
   <section id="contact" className="sec contact-sec">
@@ -24,6 +25,9 @@ const Contact = () => (
           {profile.email}
           <FiArrowUpRight aria-hidden />
         </a>
+        <div className="contact-actions">
+          <CopyButton value={profile.email} label="Copy email" />
+        </div>
       </Reveal>
 
       <Reveal className="contact-grid" delay={0.1}>

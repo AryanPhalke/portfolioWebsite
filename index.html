@@ -2,7 +2,7 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aryan Phalke · Software Engineer</title>
     <meta
@@ -15,6 +15,33 @@
       content="Full-stack engineer: React, TypeScript, Java, Spring Boot and multi-agent AI. Available to join immediately."
     />
     <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Aryan Phalke · Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack engineer: React, TypeScript, Java, Spring Boot and multi-agent AI."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Aryan Phalke",
+        "jobTitle": "Software Engineer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pune",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": ["React", "TypeScript", "Java", "Spring Boot", "LangGraph", "Multi-agent AI systems"],
+        "sameAs": [
+          "https://github.com/AryanPhalke",
+          "https://linkedin.com/in/aryan-phalke",
+          "https://leetcode.com/AryanPhalke",
+          "https://medium.com/@aryanphalke366p"
+        ]
+      }
+    </script>
     <meta name="theme-color" content="#0c0e11" />
 
     <!-- Apply the saved theme before first paint to avoid a flash. -->
@@ -24,6 +51,7 @@
           var t = localStorage.getItem('theme');
           if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
           document.documentElement.classList.toggle('dark', t === 'dark');
+          if (t === 'light') document.querySelector('meta[name="theme-color"]').content = '#f5f4ef';
         } catch (e) {}
       })();
     </script>
